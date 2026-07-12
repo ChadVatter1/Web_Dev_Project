@@ -278,3 +278,27 @@ h1 {
     }
 
 }
+
+footer
+{
+    margin-top: 50px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-text
+{
+    color: #A67C52;
+    font-size: 0.95rem;
+}
+
+.site-title
+{
+    color: #5C4632;
+    text-decoration: none;
+}
+
+.site-title:hover
+{
+    color: #7A5D45;
+}
