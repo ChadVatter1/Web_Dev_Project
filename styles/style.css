@@ -1,345 +1,435 @@
-* {
+* 
+{
     box-sizing: border-box;
 }
 
-body {
+/* Define the colors, fonts, and background image used by each theme. */
+:root
+{
+    --background-image: url("../images/light.jpg");
+    --page-color: #F7F3EE;
+    --card-color: rgba(255,255,255,.90);
+    --text-color: #6F6258;
+    --heading-color: #5C4632;
+    --accent-color: #A67C52;
+    --border-color: #D8CFC5;
+    --button-color: #5C4632;
+    --button-text: #FFFFFF;
+    --shadow-color: rgba(92,70,50,.15);
+    --font-family: "Georgia", serif;
+}
+
+/* Hide theme selection buttons while keeping them functional. */
+input[type="radio"]
+{
+    display: none;
+}
+
+/* Light Mode theme settings. */
+#light-mode:checked ~ .container
+{
+    --background-image: url("../images/light.jpg");
+    --page-color: #F7F3EE;
+    --card-color: rgba(255,255,255,.90);
+    --text-color: #6F6258;
+    --heading-color: #5C4632;
+    --accent-color: #A67C52;
+    --border-color: #D8CFC5;
+    --button-color: #5C4632;
+    --button-text: #FFFFFF;
+    --shadow-color: rgba(92,70,50,.15);
+    --font-family: "Georgia", serif;
+}
+
+/* Dark Mode theme settings. */
+#dark-mode:checked ~ .container
+{
+    --background-image: url("../images/dark.jpg");
+    --page-color: #111111;
+    --card-color: rgba(30,30,30,.90);
+    --text-color: #E0E0E0;
+    --heading-color: #FFFFFF;
+    --accent-color: #D4AF6A;
+    --border-color: #555555;
+    --button-color: #D4AF6A;
+    --button-text: #111111;
+    --shadow-color: rgba(0,0,0,.50);
+    --font-family: "Palatino Linotype", serif;
+}
+
+/* Star Mode theme settings. */
+#star-mode:checked ~ .container
+{
+    --background-image: url("../images/stars.jpg");
+    --page-color: #10152B;
+    --card-color: rgba(23,29,59,.88);
+    --text-color: #D7DFFF;
+    --heading-color: #FFFFFF;
+    --accent-color: #9EB7FF;
+    --border-color: #45528A;
+    --button-color: #9EB7FF;
+    --button-text: #10152B;
+    --shadow-color: rgba(0,0,0,.50);
+    --font-family: "Trebuchet MS", sans-serif;
+}
+
+/* Forest Mode theme settings. */
+#forest-mode:checked ~ .container
+{
+    --background-image: url("../images/forest.jpg");
+    --page-color: #14261A;
+    --card-color: rgba(31,56,39,.88);
+    --text-color: #DCE8D5;
+    --heading-color: #FFFFFF;
+    --accent-color: #9BC88A;
+    --border-color: #49664D;
+    --button-color: #9BC88A;
+    --button-text: #14261A;
+    --shadow-color: rgba(0,0,0,.45);
+    --font-family: "Garamond", serif;
+}
+
+/* Apply the selected theme to the page. */
+body
+{
     margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #F7F3EE;
-    color: #6F6258;
-
+    font-family: var(--font-family);
+    background-color: var(--page-color);
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-color);
     display: grid;
-
     grid-template-columns:
         20px
         minmax(0, 1fr)
         20px;
 }
 
-
-.container {
+/* Keep the main content centered and responsive. */
+.container
+{
     grid-column: 2;
-
     width: 100%;
-
     max-width: 1500px;
-
     margin: auto;
-
     padding: clamp(25px, 4vw, 50px) 0;
 }
 
-h1 {
+/* Style the main page title and links. */
+h1
+{
     text-align: center;
-    color: #5C4632;
+    color: var(--heading-color);
     font-size: clamp(2rem, 4vw, 3rem);
     letter-spacing: 1px;
     margin-bottom: 45px;
 }
 
+.site-title
+{
+    color: var(--heading-color);
+    text-decoration: none;
+}
 
-/* Main Profile Grid */
+.site-title:hover
+{
+    color: var(--accent-color);
+}
 
-.members {
+/* Style the theme selection buttons. */
+.theme-switcher
+{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.theme-switcher label
+{
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+}
+
+.theme-switcher label:hover
+{
+    transform: translateY(-2px);
+}
+
+/* Create the main writer grid layout. */
+.members
+{
     display: grid;
     grid-template-columns: repeat(2, minmax(450px, 1fr));
     gap: clamp(25px, 3vw, 45px);
 }
 
-
+/* Style cards used throughout the website. */
 .member-card,
-.profile-page {
-    background: #FFFDF9;
-    border: 1px solid #D8CFC5;
+.profile-page
+{
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
     border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(92,70,50,.10);
+    box-shadow: 0 8px 25px var(--shadow-color);
+    backdrop-filter: blur(10px);
 }
 
-
-.member-card {
+/* Add spacing and hover effects to writer cards. */
+.member-card
+{
     padding: clamp(18px, 2vw, 30px);
     text-align: center;
     transition: transform .25s, box-shadow .25s;
 }
 
-
-.member-card:hover {
+.member-card:hover
+{
     transform: translateY(-6px);
-    box-shadow: 0 14px 30px rgba(92,70,50,.16);
+    box-shadow: 0 14px 30px var(--shadow-color);
 }
 
-
+/* Style profile images. */
 .profile-image,
-.profile-main-image {
+.profile-main-image
+{
     width: 100%;
     object-fit: contain;
-    background: #F2ECE4;
+    background: var(--page-color);
     border-radius: 14px;
+    border: 1px solid var(--border-color);
 }
 
-
-.profile-image {
+.profile-image
+{
     height: clamp(300px, 35vw, 450px);
 }
 
-
-.member-card h2 {
-    color: #5C4632;
+.member-card h2
+{
+    color: var(--heading-color);
     font-size: clamp(1.3rem, 2vw, 1.7rem);
     margin: 20px 0 8px;
 }
 
-
 .location,
-.profile-location {
-    color: #A67C52;
+.profile-location
+{
+    color: var(--accent-color);
 }
 
-
-.location {
+.location
+{
     margin-bottom: 30px;
 }
 
-
-/* Project Gallery */
-
-.projects {
+/* Style the project gallery on the main page. */
+.projects
+{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
 
-
-.project {
+.project
+{
     transition: transform .2s;
 }
 
-
-.project:hover {
+.project:hover
+{
     transform: scale(1.03);
 }
 
-
 .project img,
-.profile-projects .project img {
+.profile-projects .project img
+{
     width: 100%;
     height: clamp(130px, 15vw, 220px);
     object-fit: contain;
-    background: #F7F3EE;
+    background: var(--page-color);
     border-radius: 12px;
-    border: 1px solid #D8CFC5;
+    border: 1px solid var(--border-color);
 }
 
-
-.project p {
+.project p
+{
     margin-top: 12px;
-    color: #5C4632;
+    color: var(--heading-color);
     font-size: .95rem;
 }
 
-
-/* Profile Detail Page */
-
-.profile-page {
-
+/* Create the profile page two-column layout. */
+.profile-page
+{
     display: grid;
-
     grid-template-columns:
         minmax(0, 1fr)
         minmax(0, 1fr);
-
     gap: 50px;
-
-    background: #FFFDF9;
-
-    border: 1px solid #D8CFC5;
-
-    border-radius: 18px;
-
     padding: 40px;
-
-    box-shadow:
-        0 8px 25px rgba(92,70,50,.10);
-
 }
 
-
-.profile-gallery {
+/* Arrange the profile image and projects. */
+.profile-gallery
+{
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-
-.profile-main-image {
-
-    width: 100%;
-
+.profile-main-image
+{
     height: clamp(350px, 45vw, 550px);
-
 }
 
-
-.profile-projects {
+.profile-projects
+{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-
-.profile-projects .project img {
+.profile-projects .project img
+{
     height: 220px;
 }
 
-
-.profile-info {
+/* Style the information side of the profile page. */
+.profile-info
+{
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-
-.profile-info h1 {
+.profile-info h1
+{
     text-align: left;
     margin: 0;
 }
 
-
-.profile-section {
-    background: #F7F3EE;
+/* Style information boxes inside profiles. */
+.profile-section
+{
+    background: var(--page-color);
     padding: 25px;
     border-radius: 14px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(8px);
 }
 
-
-.profile-section h2 {
-    color: #5C4632;
+.profile-section h2
+{
+    color: var(--heading-color);
     margin-top: 0;
 }
 
-
 .profile-section p,
-.profile-section li {
-    color: #6F6258;
+.profile-section li
+{
+    color: var(--text-color);
     line-height: 1.7;
 }
 
-
-/* Responsive */
-
-@media(max-width:1200px) {
-
-    body {
-        grid-template-columns: 20px 1fr 20px;
-    }
-
-    .members {
-        grid-template-columns: 1fr;
-    }
-
+/* Style buttons used for inquiries and forms. */
+.commission-button
+{
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--button-color);
+    color: var(--button-text);
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid var(--button-color);
 }
 
-
-@media(max-width:1000px) {
-
-    .profile-page {
-        grid-template-columns: 1fr;
-        padding: 25px;
-    }
-
-    .profile-main-image {
-        height: 400px;
-    }
-
+.commission-button:hover
+{
+    opacity: .8;
 }
 
-
-@media(max-width:700px) {
-
-    body {
-        grid-template-columns: 12px 1fr 12px;
-    }
-
-    .member-card {
-        padding: 18px;
-        border-radius: 14px;
-    }
-
-    .profile-image {
-        height: 300px;
-    }
-
-    .projects {
-        gap: 10px;
-    }
-
-    .project img {
-        height: 100px;
-    }
-
+/* Style form fields so they match each theme. */
+input,
+textarea,
+select
+{
+    font-family: inherit;
+    background: var(--card-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
 }
 
+textarea
+{
+    width: 100%;
+}
+
+input[type="submit"]
+{
+    background: var(--button-color);
+    color: var(--button-text);
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover
+{
+    opacity: .8;
+}
+
+/* Style the genre search section. */
 .genre-filter
 {
     margin-bottom: 35px;
-
     text-align: center;
 }
-
 
 .genre-filter label
 {
     margin-right: 12px;
-
-    color: #5C4632;
-
+    color: var(--heading-color);
     font-weight: bold;
 }
-
 
 .genre-filter select
 {
     padding: 10px;
-
-    border: 1px solid #D8CFC5;
-
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-
     margin-right: 12px;
-
-    background: #FFFDF9;
-
-    color: #6F6258;
-
+    background: var(--card-color);
+    color: var(--text-color);
     font-family: inherit;
 }
-
 
 .genre-filter input[type="submit"]
 {
     width: auto;
-
     padding: 10px 20px;
-
-    background: #5C4632;
-
-    color: white;
-
+    background: var(--button-color);
+    color: var(--button-text);
     border: none;
-
     border-radius: 8px;
-
     cursor: pointer;
-
 }
-
 
 .genre-filter input[type="submit"]:hover
 {
-    background: #7A5D45;
+    opacity: .8;
 }
 
-
+/* Style the footer section. */
 footer
 {
     margin-top: 50px;
@@ -349,17 +439,130 @@ footer
 
 .footer-text
 {
-    color: #A67C52;
+    color: var(--accent-color);
     font-size: 0.95rem;
 }
 
-.site-title
+/* Style error messages and validation text. */
+.error-message
 {
-    color: #5C4632;
-    text-decoration: none;
+    color: #B94A48;
+    font-weight: bold;
 }
 
-.site-title:hover
+/* Responsive layout changes for tablets and smaller screens. */
+@media(max-width:1200px)
 {
-    color: #7A5D45;
+    body
+    {
+        grid-template-columns:
+            20px
+            1fr
+            20px;
+    }
+
+    .members
+    {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:1000px)
+{
+    .profile-page
+    {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .profile-main-image
+    {
+        height: 400px;
+    }
+}
+
+@media(max-width:700px)
+{
+    body
+    {
+        grid-template-columns:
+            12px
+            1fr
+            12px;
+    }
+
+    .member-card
+    {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .profile-image
+    {
+        height: 300px;
+    }
+
+    .projects
+    {
+        gap: 10px;
+    }
+
+    .project img
+    {
+        height: 100px;
+    }
+
+    .theme-switcher label
+    {
+        display: block;
+        margin: 8px auto;
+        width: fit-content;
+    }
+}
+
+/* Style general links throughout the website. */
+a
+{
+    color: var(--accent-color);
+}
+
+a:hover
+{
+    opacity: .8;
+}
+
+/* Style lists used for upcoming events. */
+.profile-section ul
+{
+    padding-left: 25px;
+}
+
+.profile-section li
+{
+    margin-bottom: 10px;
+}
+
+/* Keep buttons and interactive elements consistent with themes. */
+button
+{
+    font-family: inherit;
+    background: var(--button-color);
+    color: var(--button-text);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover
+{
+    opacity: .8;
+}
+
+/* Improve readability of text areas and form fields. */
+input:focus,
+textarea:focus,
+select:focus
+{
+    outline: 2px solid var(--accent-color);
 }
