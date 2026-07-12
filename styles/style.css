@@ -279,6 +279,67 @@ h1 {
 
 }
 
+.genre-filter
+{
+    margin-bottom: 35px;
+
+    text-align: center;
+}
+
+
+.genre-filter label
+{
+    margin-right: 12px;
+
+    color: #5C4632;
+
+    font-weight: bold;
+}
+
+
+.genre-filter select
+{
+    padding: 10px;
+
+    border: 1px solid #D8CFC5;
+
+    border-radius: 8px;
+
+    margin-right: 12px;
+
+    background: #FFFDF9;
+
+    color: #6F6258;
+
+    font-family: inherit;
+}
+
+
+.genre-filter input[type="submit"]
+{
+    width: auto;
+
+    padding: 10px 20px;
+
+    background: #5C4632;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+}
+
+
+.genre-filter input[type="submit"]:hover
+{
+    background: #7A5D45;
+}
+
+
 footer
 {
     margin-top: 50px;
