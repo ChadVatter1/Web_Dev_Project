@@ -1,0 +1,280 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #F7F3EE;
+    color: #6F6258;
+
+    display: grid;
+
+    grid-template-columns:
+        20px
+        minmax(0, 1fr)
+        20px;
+}
+
+
+.container {
+    grid-column: 2;
+
+    width: 100%;
+
+    max-width: 1500px;
+
+    margin: auto;
+
+    padding: clamp(25px, 4vw, 50px) 0;
+}
+
+h1 {
+    text-align: center;
+    color: #5C4632;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 1px;
+    margin-bottom: 45px;
+}
+
+
+/* Main Profile Grid */
+
+.members {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(450px, 1fr));
+    gap: clamp(25px, 3vw, 45px);
+}
+
+
+.member-card,
+.profile-page {
+    background: #FFFDF9;
+    border: 1px solid #D8CFC5;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(92,70,50,.10);
+}
+
+
+.member-card {
+    padding: clamp(18px, 2vw, 30px);
+    text-align: center;
+    transition: transform .25s, box-shadow .25s;
+}
+
+
+.member-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(92,70,50,.16);
+}
+
+
+.profile-image,
+.profile-main-image {
+    width: 100%;
+    object-fit: contain;
+    background: #F2ECE4;
+    border-radius: 14px;
+}
+
+
+.profile-image {
+    height: clamp(300px, 35vw, 450px);
+}
+
+
+.member-card h2 {
+    color: #5C4632;
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    margin: 20px 0 8px;
+}
+
+
+.location,
+.profile-location {
+    color: #A67C52;
+}
+
+
+.location {
+    margin-bottom: 30px;
+}
+
+
+/* Project Gallery */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+
+.project {
+    transition: transform .2s;
+}
+
+
+.project:hover {
+    transform: scale(1.03);
+}
+
+
+.project img,
+.profile-projects .project img {
+    width: 100%;
+    height: clamp(130px, 15vw, 220px);
+    object-fit: contain;
+    background: #F7F3EE;
+    border-radius: 12px;
+    border: 1px solid #D8CFC5;
+}
+
+
+.project p {
+    margin-top: 12px;
+    color: #5C4632;
+    font-size: .95rem;
+}
+
+
+/* Profile Detail Page */
+
+.profile-page {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 50px;
+
+    background: #FFFDF9;
+
+    border: 1px solid #D8CFC5;
+
+    border-radius: 18px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 8px 25px rgba(92,70,50,.10);
+
+}
+
+
+.profile-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+.profile-main-image {
+
+    width: 100%;
+
+    height: clamp(350px, 45vw, 550px);
+
+}
+
+
+.profile-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.profile-projects .project img {
+    height: 220px;
+}
+
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+.profile-info h1 {
+    text-align: left;
+    margin: 0;
+}
+
+
+.profile-section {
+    background: #F7F3EE;
+    padding: 25px;
+    border-radius: 14px;
+}
+
+
+.profile-section h2 {
+    color: #5C4632;
+    margin-top: 0;
+}
+
+
+.profile-section p,
+.profile-section li {
+    color: #6F6258;
+    line-height: 1.7;
+}
+
+
+/* Responsive */
+
+@media(max-width:1200px) {
+
+    body {
+        grid-template-columns: 20px 1fr 20px;
+    }
+
+    .members {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media(max-width:1000px) {
+
+    .profile-page {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .profile-main-image {
+        height: 400px;
+    }
+
+}
+
+
+@media(max-width:700px) {
+
+    body {
+        grid-template-columns: 12px 1fr 12px;
+    }
+
+    .member-card {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .profile-image {
+        height: 300px;
+    }
+
+    .projects {
+        gap: 10px;
+    }
+
+    .project img {
+        height: 100px;
+    }
+
+}
