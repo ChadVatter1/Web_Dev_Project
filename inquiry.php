@@ -6,9 +6,9 @@ include "data.php";
 // This will get the writer's id
 $writer_id = 0;
 
-if (isset($_GET["member"]))
+if (isset($_GET["writer"]))
 {
-    $writer_id = (int)$_GET["member"];
+    $writer_id = (int)$_GET["writer"];
 }
 
 // This will find the selected writer
@@ -16,7 +16,7 @@ $writer = null;
 
 foreach ($writers as $currentWriter)
 {
-    if ($currentWriter["id"] == $id)
+    if ($currentWriter["id"] == $writer_id)
     {
         $writer = $currentWriter;
         break;
@@ -30,7 +30,7 @@ if ($writer == null)
     exit();
 }
 
-// Sets page title to "Commission Inquiry
+// Sets page title
 $pageTitle = "Commission Inquiry";
 
 // Store form values
@@ -45,12 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $email = trim($_POST["email"]);
     $message = trim($_POST["message"]);
 
-    if ($name == "")
+    if (!$name)
     {
         $errors[] = "Please enter your name.";
     }
 
-    if ($email == "")
+    if (!$email)
     {
         $errors[] = "Please enter your email.";
     }
@@ -60,20 +60,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $errors[] = "Please enter a valid email address.";
     }
 
-    if ($message == "")
+    if (!$message)
     {
         $errors[] = "Please enter a message.";
     }
 
-    if (empty($errors))
+    if (!$errors)
     {
+        $_SESSION["inquiry"] = [];
 
-        $_SESSION["inquiry"] = [
-            "writer" => $member["name"],
-            "name" => htmlspecialchars($name),
-            "email" => htmlspecialchars($email),
-            "message" => htmlspecialchars($message)
-        ];
+        $_SESSION["inquiry"]["writer"] = $writer["name"];
+        $_SESSION["inquiry"]["name"] = htmlspecialchars($name);
+        $_SESSION["inquiry"]["email"] = htmlspecialchars($email);
+        $_SESSION["inquiry"]["message"] = htmlspecialchars($message);
 
         header("Location: thankyou.php");
         exit();
@@ -95,7 +94,8 @@ Commission Inquiry
 Send a commission inquiry to
 <strong>
 
-<?php echo $member["name"]; ?>
+<?php echo $writer["name"]; ?>
+
 </strong>.
 </p>
 
@@ -105,11 +105,15 @@ foreach ($errors as $error)
 {
 
 ?>
+
 <p class="error-message">
+
 <?php echo $error; ?>
+
 </p>
 
 <?php
+
 }
 
 ?>
@@ -117,6 +121,7 @@ foreach ($errors as $error)
 <form method="post">
 
 <p>
+
 <label>
 Name
 </label>
@@ -126,9 +131,12 @@ type="text"
 name="name"
 value="<?php echo htmlspecialchars($name); ?>"
 >
+
 </p>
 
+
 <p>
+
 <label>
 Email
 </label>
@@ -138,7 +146,9 @@ type="email"
 name="email"
 value="<?php echo htmlspecialchars($email); ?>"
 >
+
 </p>
+
 
 <p>
 
@@ -150,6 +160,7 @@ Message
 
 </p>
 
+
 <input
 type="submit"
 value="Send Inquiry"
@@ -158,9 +169,10 @@ value="Send Inquiry"
 </form>
 
 </div>
-
 </div>
 
 <?php
+
 include "includes/footer.php";
+
 ?>

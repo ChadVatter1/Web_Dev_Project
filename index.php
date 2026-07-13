@@ -113,18 +113,16 @@ include "includes/header.php";
 
 <?php
 
-foreach ($members as $member)
+foreach ($writers as $writer)
 {
 
     // Skip writers that do not match the selected genre
 
-    if ($member["id"] > 10 && $selectedGenre == "All"){continue;}
-
     if
     (
-        ($selectedGenre != "All"
+        $selectedGenre != "All"
         &&
-        $member["genre"] != $selectedGenre)
+        $writer["genre"] != $selectedGenre
     )
     {
         continue;
@@ -133,16 +131,16 @@ foreach ($members as $member)
 ?>
 
 
-<div class="member-card">
+<div class="writer-card">
 
 
-<a href="profile.php?member=<?php echo $member['id']; ?>">
+<a href="profile.php?member=<?php echo $writer['id']; ?>">
 
 
     <img 
         class="profile-image"
-        src="<?php echo $member['profileImage']; ?>"
-        alt="<?php echo $member['name']; ?>"
+        src="<?php echo $writer['profileImage']; ?>"
+        alt="<?php echo $writer['name']; ?>"
     >
 
 
@@ -152,7 +150,7 @@ foreach ($members as $member)
 
 <h2>
 
-<?php echo $member['name']; ?>
+<?php echo $writer['name']; ?>
 
 </h2>
 
@@ -160,7 +158,7 @@ foreach ($members as $member)
 
 <p class="location">
 
-<?php echo $member['location']; ?>
+<?php echo $writer['location']; ?>
 
 </p>
 
@@ -172,7 +170,7 @@ foreach ($members as $member)
 
 <?php
 
-foreach ($member['projects'] as $project)
+foreach ($writer['projects'] as $project)
 {
 
 ?>
@@ -228,5 +226,4 @@ foreach ($member['projects'] as $project)
 <?php
 
 include "includes/footer.php";
-
 ?>
