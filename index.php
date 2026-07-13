@@ -118,11 +118,13 @@ foreach ($members as $member)
 
     // Skip writers that do not match the selected genre
 
+    if ($member["id"] > 10 && $selectedGenre == "All"){continue;}
+
     if
     (
-        $selectedGenre != "All"
+        ($selectedGenre != "All"
         &&
-        $member["genre"] != $selectedGenre
+        $member["genre"] != $selectedGenre)
     )
     {
         continue;
