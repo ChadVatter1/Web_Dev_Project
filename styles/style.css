@@ -26,7 +26,7 @@ input[type="radio"]
 }
 
 /* Light Mode theme settings. */
-#light-mode:checked ~ .container
+body:has(#light-mode:checked)
 {
     --background-image: url("../images/light.jpg");
     --page-color: #F7F3EE;
@@ -41,8 +41,9 @@ input[type="radio"]
     --font-family: "Georgia", serif;
 }
 
+
 /* Dark Mode theme settings. */
-#dark-mode:checked ~ .container
+body:has(#dark-mode:checked)
 {
     --background-image: url("../images/dark.jpg");
     --page-color: #111111;
@@ -57,8 +58,9 @@ input[type="radio"]
     --font-family: "Palatino Linotype", serif;
 }
 
+
 /* Star Mode theme settings. */
-#star-mode:checked ~ .container
+body:has(#star-mode:checked)
 {
     --background-image: url("../images/stars.jpg");
     --page-color: #10152B;
@@ -73,8 +75,9 @@ input[type="radio"]
     --font-family: "Trebuchet MS", sans-serif;
 }
 
+
 /* Forest Mode theme settings. */
-#forest-mode:checked ~ .container
+body:has(#forest-mode:checked)
 {
     --background-image: url("../images/forest.jpg");
     --page-color: #14261A;
@@ -543,7 +546,7 @@ footer
         color .3s,
         border .3s;
     }
-    
+
 }
 
 /* Style general links throughout the website. */
