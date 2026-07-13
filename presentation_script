@@ -1,0 +1,28 @@
+1. Explain how your HTML files are organized and how they interact. Identify where structure, navigation, content sections, and footer are each handled across your file set.
+
+2. Describe how a user navigates through your site. What visual cues — hover states, active link indicators, scroll transitions — guide them from one section to another?
+
+3. Describe your site's visual hierarchy. How do font size, weight, color, and spacing work together to lead the user's eye toward primary actions and key content?
+
+4. How did you verify color contrast meets WCAG AA (4.5:1 for normal text, 3:1 for large text and UI components)? Name the tool you used and walk through one example that required adjustment.
+
+5. Explain your <head> metadata — which metatags did you include, what does each do, and why does the viewport meta tag matter for your responsive implementation?
+
+6. Walk through one complex CSS layout region. Explain the container rules, child alignment behavior, and how it collapses or reflows at smaller viewports. Show it live in the browser.
+
+7. How did your team handle a scope change or unexpected challenge — for example, a layout breaking at a breakpoint, a design disagreement, or unexpected time pressure — during the build?
+
+8. Show your commit history. What do the frequency, message quality, and author attribution reveal about your team's workflow discipline and individual contribution?
+
+9. What communication tools and meeting cadence did your team use? How often did you sync, and what format did those check-ins or standups take?
+
+10. Walk through your file and folder structure. Explain every directory and file's purpose, and describe how a new contributor would orient themselves within five minutes of cloning the repo.
+
+11. Walk through your README. Does it enable a new contributor to set up and understand the project without asking questions? What would you add or change to make it more complete?
+
+Defense 
+1. 
+2.
+3.
+4.
+5.
