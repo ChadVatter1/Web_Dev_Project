@@ -2,7 +2,7 @@
 
 session_start();
 
-// Return to the home page if no inquiry exists
+// Return to the home page if no inquiry into author exists
 if (!isset($_SESSION["inquiry"]))
 {
     header("Location: index.php");
@@ -11,7 +11,7 @@ if (!isset($_SESSION["inquiry"]))
 
 $inquiry = $_SESSION["inquiry"];
 
-// Set page title
+// Set page title - Also indicates that the inquary to the author has been submitted
 $pageTitle = "Inquiry Submitted";
 include "includes/header.php";
 ?>
