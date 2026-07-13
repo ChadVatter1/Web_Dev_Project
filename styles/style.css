@@ -278,6 +278,12 @@ h1
     padding: 40px;
 }
 
+/* Use a single column layout for pages without a gallery. */
+.profile-page.single-column
+{
+    grid-template-columns: 1fr;
+}
+
 /* Arrange the profile image and projects. */
 .profile-gallery
 {
@@ -512,12 +518,32 @@ footer
         height: 100px;
     }
 
+    .theme-switcher
+    {
+        grid-column:2;
+    }
+    
     .theme-switcher label
     {
         display: block;
         margin: 8px auto;
         width: fit-content;
     }
+
+    .member-card,
+    .profile-page,
+    .profile-section,
+    input,
+    textarea,
+    select,
+    button
+    {
+        transition:
+        background .3s,
+        color .3s,
+        border .3s;
+    }
+    
 }
 
 /* Style general links throughout the website. */
