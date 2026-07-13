@@ -2,37 +2,30 @@
 
 include "data.php";
 
-// Get member ID from URL
+// Get writer ID from URL
 
 $id = (int)($_GET['member'] ?? 0);
 
 
-// Find matching member
+// Find matching writer for selected
 
 $found = array_filter
-(
-    $members,
-    fn($m) => $m['id'] === $id
-);
+($writers,fn($m) => $m['id'] === $id);
 
 
-// Redirect if profile does not exist
+// Redirect user to the main page (index.php) if profile for the selected author doesn't exist
 
-if (empty($found)) 
-{
-    header("Location: index.php");
-    exit();
-}
+if (empty($found)) {header("Location: index.php");exit();}
 
 
-// Convert filtered array into single member object
+// Convert filtered array into single writer object
 
-$member = array_values($found)[0];
+$writer = array_values($found)[0];
 
 
-// Set page title
+// Set page title for selected author
 
-$pageTitle = $member['name'] . " | Profile";
+$pageTitle = $writer['name'] . " | Profile";
 
 
 include "includes/header.php";
@@ -48,8 +41,8 @@ include "includes/header.php";
 
         <img
             class="profile-main-image"
-            src="<?php echo $member['profileImage']; ?>"
-            alt="<?php echo $member['name']; ?>"
+            src="<?php echo $writer['profileImage']; ?>"
+            alt="<?php echo $writer['name']; ?>"
         >
 
 
@@ -57,7 +50,7 @@ include "includes/header.php";
         <div class="profile-projects">
 
 
-            <?php foreach ($member['projects'] as $project): ?>
+            <?php foreach ($writer['projects'] as $project): ?>
 
 
                 <div class="project">
@@ -98,21 +91,21 @@ include "includes/header.php";
 
             <h1>
 
-                <?php echo $member['name']; ?>
+                <?php echo $writer['name']; ?>
 
             </h1>
 
 
             <p class="profile-location">
 
-                <?php echo $member['location']; ?>
+                <?php echo $writer['location']; ?>
 
             </p>
 
 
             <p>
 
-                <?php echo $member['discipline'] ?? "Novelist"; ?>
+                <?php echo $writer['discipline'] ?? "Novelist"; ?>
 
             </p>
 
@@ -135,7 +128,7 @@ include "includes/header.php";
 
             <p>
 
-                <?php echo $member['bio'] ?? "Placeholder bio"; ?>
+                <?php echo $writer['bio'] ?? "Placeholder bio"; ?>
 
             </p>
 
@@ -162,10 +155,10 @@ include "includes/header.php";
 
                 <?php
 
-                if (isset($member['events']))
+                if (isset($writer['events']))
                 {
 
-                    foreach ($member['events'] as $event)
+                    foreach ($writer['events'] as $event)
                     {
 
                 ?>
@@ -211,7 +204,7 @@ include "includes/header.php";
 
                 Are you interested in inviting 
                 
-                <?php echo $member['name']; ?>
+                <?php echo $writer['name']; ?>
 
                 to a book signing, speaking event, or interview?
 
@@ -220,7 +213,7 @@ include "includes/header.php";
 
             <a 
                 class="commission-button" 
-                href="inquiry.php?member=<?php echo $member['id']; ?>"
+                href="inquiry.php?member=<?php echo $writer['id']; ?>"
             >
 
                 Send Inquiry
@@ -250,7 +243,7 @@ include "includes/header.php";
 
                 <strong>Email:</strong>
 
-                <?php echo $member['email'] ?? "Placeholder email"; ?>
+                <?php echo $writer['email'] ?? "Placeholder email"; ?>
 
             </p>
 
@@ -260,7 +253,7 @@ include "includes/header.php";
 
                 <strong>Phone:</strong>
 
-                <?php echo $member['phone'] ?? "Placeholder phone"; ?>
+                <?php echo $writer['phone'] ?? "Placeholder phone"; ?>
 
             </p>
 
@@ -270,7 +263,7 @@ include "includes/header.php";
 
                 <strong>Website:</strong>
 
-                <?php echo $member['website'] ?? "Placeholder website"; ?>
+                <?php echo $writer['website'] ?? "Placeholder website"; ?>
 
             </p>
 

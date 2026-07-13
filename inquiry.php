@@ -3,34 +3,34 @@
 session_start();
 include "data.php";
 
-// Get the member ID
-$id = 0;
+// This will get the writer's id
+$writer_id = 0;
 
 if (isset($_GET["member"]))
 {
-    $id = (int)$_GET["member"];
+    $writer_id = (int)$_GET["member"];
 }
 
-// Find the selected member
-$member = null;
+// This will find the selected writer
+$writer = null;
 
-foreach ($members as $currentMember)
+foreach ($writers as $currentWriter)
 {
-    if ($currentMember["id"] == $id)
+    if ($currentWriter["id"] == $id)
     {
-        $member = $currentMember;
+        $writer = $currentWriter;
         break;
     }
 }
 
-// Return to the home page if the member does not exist
-if ($member == null)
+// Returns user to main/home page if the writer selected does not exist
+if ($writer == null)
 {
     header("Location: index.php");
     exit();
 }
 
-// Set the page title
+// Sets page title to "Commission Inquiry
 $pageTitle = "Commission Inquiry";
 
 // Store form values
@@ -39,7 +39,6 @@ $email = "";
 $message = "";
 $errors = [];
 
-// Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $name = trim($_POST["name"]);
