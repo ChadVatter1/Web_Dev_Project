@@ -1,28 +1,65 @@
 1. Explain how your HTML files are organized and how they interact. Identify where structure, navigation, content sections, and footer are each handled across your file set.
 
+-All our image files are saved in the image dir
+-The index.php and profile.php both pull from the data.php file. 
+-data.php bridges information and the images into the other php files.
+-header and footer files
+
 2. Describe how a user navigates through your site. What visual cues — hover states, active link indicators, scroll transitions — guide them from one section to another?
+
+-Can scroll through all authors
+-Can filter by genre
+-Can view the author profile by clicking the author image, images are transitioned and modified to indicate which is being "selected"
+
 
 3. Describe your site's visual hierarchy. How do font size, weight, color, and spacing work together to lead the user's eye toward primary actions and key content?
 
+-Larger images and words for the authors names and pictures
+-Smaller text and imges for the books written by the author
+-Title of page is larger than any other text to indicate what the website is about
+
 4. How did you verify color contrast meets WCAG AA (4.5:1 for normal text, 3:1 for large text and UI components)? Name the tool you used and walk through one example that required adjustment.
+
+-We utilzed AI to determine the contrast
+-Followed up by brief manual checking
 
 5. Explain your <head> metadata — which metatags did you include, what does each do, and why does the viewport meta tag matter for your responsive implementation?
 
+-<html lang="en"> - Puts website into english
+-<meta charset="UTF-8"> - Defines which set of characters we are using
+
 6. Walk through one complex CSS layout region. Explain the container rules, child alignment behavior, and how it collapses or reflows at smaller viewports. Show it live in the browser.
+
+-The root block is used across all php files (text color, background, page color, etc). 
+-We used this to prevent these static settings from changing from page to page
 
 7. How did your team handle a scope change or unexpected challenge — for example, a layout breaking at a breakpoint, a design disagreement, or unexpected time pressure — during the build?
 
+-We had a challenge when changing different variables to fit better with the assignment
+-This broke multiple aspects (CSS, different files) and for loops
+-members -> writers
+
 8. Show your commit history. What do the frequency, message quality, and author attribution reveal about your team's workflow discipline and individual contribution?
+
+-Show off commits
 
 9. What communication tools and meeting cadence did your team use? How often did you sync, and what format did those check-ins or standups take?
 
+-Discord
+-Meeting after between 1st class and 2nd class
+-Meeting up and discussing ideas for project
+
 10. Walk through your file and folder structure. Explain every directory and file's purpose, and describe how a new contributor would orient themselves within five minutes of cloning the repo.
+
+-Demonstrate
 
 11. Walk through your README. Does it enable a new contributor to set up and understand the project without asking questions? What would you add or change to make it more complete?
 
+-Explain README
+
 Defense 
-1. 
-2.
-3.
-4.
-5.
+1. Show the genre selection is working -> show index.php -> show data.php -> demonstrate another genre
+2. Broken image
+3. Header/Footer include as compared to having it in each php file individually 
+4. Show off screen resizing and mobile
+5. Naming convention
