@@ -81,6 +81,7 @@ h1
 }
 
 .member-card,
+.writer-card,
 .profile-page
 {
     background: var(--card-color);
@@ -88,15 +89,19 @@ h1
     border-radius: 18px;
     box-shadow: 0 8px 25px var(--shadow-color);
     backdrop-filter: blur(10px);
+    overflow: hidden;
 }
 
-.member-card
-{padding: clamp(18px, 2vw, 30px);
+.member-card,
+.writer-card
+{
+    padding: clamp(18px, 2vw, 30px);
     text-align: center;
     transition: transform .25s, box-shadow .25s;
 }
 
-.member-card:hover
+.member-card:hover,
+.writer-card:hover
 {
     transform: translateY(-6px);
     box-shadow: 0 14px 30px var(--shadow-color);
@@ -117,6 +122,12 @@ h1
     height: clamp(300px, 35vw, 450px);
 }
 
+.writer-card .profile-image
+{
+    border-radius: 14px;
+}
+
+.writer-card h2,
 .member-card h2
 {
     color: var(--heading-color);
@@ -140,7 +151,9 @@ h1
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
-
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
 }
 
 .project

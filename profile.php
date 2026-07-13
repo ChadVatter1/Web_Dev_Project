@@ -7,23 +7,30 @@ include "data.php";
 $id = (int)($_GET['member'] ?? 0);
 
 
-// Find matching writer for selected
+// Find matching writer
 
 $found = array_filter
-($writers,fn($m) => $m['id'] === $id);
+(
+    $writers,
+    fn($writer) => $writer['id'] === $id
+);
 
 
-// Redirect user to the main page (index.php) if profile for the selected author doesn't exist
+// Redirect user if writer does not exist
 
-if (empty($found)) {header("Location: index.php");exit();}
+if (empty($found))
+{
+    header("Location: index.php");
+    exit();
+}
 
 
-// Convert filtered array into single writer object
+// Convert filtered array into single writer
 
 $writer = array_values($found)[0];
 
 
-// Set page title for selected author
+// Set page title
 
 $pageTitle = $writer['name'] . " | Profile";
 
