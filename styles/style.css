@@ -3,47 +3,8 @@
     box-sizing: border-box;
 }
 
-/* Define the colors, fonts, and background image used by each theme. */
+/* Define the colors, fonts, and permanent dark background. */
 :root
-{
-    --background-image: url("../images/light.jpg");
-    --page-color: #F7F3EE;
-    --card-color: rgba(255,255,255,.90);
-    --text-color: #6F6258;
-    --heading-color: #5C4632;
-    --accent-color: #A67C52;
-    --border-color: #D8CFC5;
-    --button-color: #5C4632;
-    --button-text: #FFFFFF;
-    --shadow-color: rgba(92,70,50,.15);
-    --font-family: "Georgia", serif;
-}
-
-/* Hide theme selection buttons while keeping them functional. */
-input[type="radio"]
-{
-    display: none;
-}
-
-/* Light Mode theme settings. */
-body:has(#light-mode:checked)
-{
-    --background-image: url("../images/light.jpg");
-    --page-color: #F7F3EE;
-    --card-color: rgba(255,255,255,.90);
-    --text-color: #6F6258;
-    --heading-color: #5C4632;
-    --accent-color: #A67C52;
-    --border-color: #D8CFC5;
-    --button-color: #5C4632;
-    --button-text: #FFFFFF;
-    --shadow-color: rgba(92,70,50,.15);
-    --font-family: "Georgia", serif;
-}
-
-
-/* Dark Mode theme settings. */
-body:has(#dark-mode:checked)
 {
     --background-image: url("../images/dark.jpg");
     --page-color: #111111;
@@ -58,41 +19,7 @@ body:has(#dark-mode:checked)
     --font-family: "Palatino Linotype", serif;
 }
 
-
-/* Star Mode theme settings. */
-body:has(#star-mode:checked)
-{
-    --background-image: url("../images/stars.jpg");
-    --page-color: #10152B;
-    --card-color: rgba(23,29,59,.88);
-    --text-color: #D7DFFF;
-    --heading-color: #FFFFFF;
-    --accent-color: #9EB7FF;
-    --border-color: #45528A;
-    --button-color: #9EB7FF;
-    --button-text: #10152B;
-    --shadow-color: rgba(0,0,0,.50);
-    --font-family: "Trebuchet MS", sans-serif;
-}
-
-
-/* Forest Mode theme settings. */
-body:has(#forest-mode:checked)
-{
-    --background-image: url("../images/forest.jpg");
-    --page-color: #14261A;
-    --card-color: rgba(31,56,39,.88);
-    --text-color: #DCE8D5;
-    --heading-color: #FFFFFF;
-    --accent-color: #9BC88A;
-    --border-color: #49664D;
-    --button-color: #9BC88A;
-    --button-text: #14261A;
-    --shadow-color: rgba(0,0,0,.45);
-    --font-family: "Garamond", serif;
-}
-
-/* Apply the selected theme to the page. */
+/* Apply the permanent dark theme to the page. */
 body
 {
     margin: 0;
@@ -140,31 +67,6 @@ h1
 .site-title:hover
 {
     color: var(--accent-color);
-}
-
-/* Style the theme selection buttons. */
-.theme-switcher
-{
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.theme-switcher label
-{
-    display: inline-block;
-    margin: 5px;
-    padding: 8px 15px;
-    border-radius: 8px;
-    background: var(--card-color);
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-}
-
-.theme-switcher label:hover
-{
-    transform: translateY(-2px);
 }
 
 /* Create the main writer grid layout. */
@@ -366,7 +268,7 @@ h1
     opacity: .8;
 }
 
-/* Style form fields so they match each theme. */
+/* Style form fields. */
 input,
 textarea,
 select
@@ -520,33 +422,6 @@ footer
     {
         height: 100px;
     }
-
-    .theme-switcher
-    {
-        grid-column:2;
-    }
-    
-    .theme-switcher label
-    {
-        display: block;
-        margin: 8px auto;
-        width: fit-content;
-    }
-
-    .member-card,
-    .profile-page,
-    .profile-section,
-    input,
-    textarea,
-    select,
-    button
-    {
-        transition:
-        background .3s,
-        color .3s,
-        border .3s;
-    }
-
 }
 
 /* Style general links throughout the website. */
@@ -571,7 +446,7 @@ a:hover
     margin-bottom: 10px;
 }
 
-/* Keep buttons and interactive elements consistent with themes. */
+/* Keep buttons and interactive elements consistent. */
 button
 {
     font-family: inherit;
