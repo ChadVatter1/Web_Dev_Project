@@ -21,3 +21,4 @@ Features
 -Search feature. Each author is tagged for specific genres and at the top of the main page there is a search/filter for genres. After a search is entered only the "tagged" authors will be displayed.
 -Inquiry form. This allows users to directly reach out to authors by providing a name, email, and message. If all fields are filled out correctly then a confirmation is displayed using the thankyou.php file.
 
+REPO : https://github.com/ChadVatter1/Web_Dev_Project
