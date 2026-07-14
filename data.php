@@ -156,7 +156,7 @@ $writers = [
         "website" => "https://www.suemonkkidd.com/",
         "bio" => "Sue Monk Kidd was raised in the small town of Sylvester, Georgia, a place that deeply influenced the writing of her first novel The Secret Life of Bees. An award-winning and international bestselling author, Kidd also authored The Invention of Wings, The Mermaid Chair, The Book of Longings, as well as several acclaimed memoirs, including Traveling with Pomegranates and The Dance of the Dissident Daughter. Her new book, Writing, Creativity and Soul was released on October 21, 2025 and became an instant national bestseller.  ",
         "projects" => [
-            ["name" => "The Secret Life of Bees", "image" => "images/Sue_Monk_Kidd/Secret_Life_Of_Bees.jpg"],
+            ["name" => "The Secret Life of Bees", "image" => "images/Sue_Monk_Kidd/Bees.jpg"],
             ["name" => "The Invention of Wings", "image" => "images/Sue_Monk_Kidd/Invention_Of_Wings.jpg"],
             ["name" => "The Book of Longings", "image" => "images/Sue_Monk_Kidd/Book_Of_Longings.jpg"]
         ],
